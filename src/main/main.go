@@ -2,7 +2,10 @@ package main
 
 import (
 	"day01"
+	"day02"
 	"fmt"
+	"log"
+	"time"
 )
 
 func runDay01() {
@@ -30,6 +33,28 @@ func runDay01() {
 	fmt.Printf("Result for part 2 is: %d", result) // returns 488
 }
 
+func runDay02() {
+	fmt.Println("Read input 2!")
+	input, err := readDailyInput(2)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	result := day02.ChecksumCalculator(input)
+	fmt.Printf("Result for part 1 is: %d", result) // returns 6696
+
+	fmt.Println()
+
+	secondResult := day02.BoxIdComparer(input)
+	fmt.Printf("Result for part 2 is: %s", secondResult) // returns bvnfawcnyoeyudzrpgslimtkj
+}
+
 func main() {
-	runDay01()
+	start := time.Now()
+	// runDay01()
+	runDay02()
+	elapsed := time.Since(start)
+	fmt.Println()
+	log.Printf("Took %s", elapsed)
 }
